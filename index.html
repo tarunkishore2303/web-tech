@@ -6,24 +6,60 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="./styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <body>
-    <div ng-app="header">
-      <div ng-controller="navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <ul class="navbar-nav">
-                <li class="nav-item" ng-repeat="x in menu">
-                    <a class="nav-link" href="#">{{x}}</a>
+    <div ng-app="app">
+        <div ng-controller="navbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item" ng-repeat="x in menu">
+                        <a class="nav-link" href="#">{{x}}</a>
+                    </li>
+                </ul>            
+            </nav>        
+        </div>
+        <div class="jumbotron hero-image">
+            <h2 class="hero-text">Welcome to E-commerce website</h2>
+        </div>       
+        <div ng-app="products">
+            <div ng-controller="featured-products" class="row">
+                <li ng-repeat = "product in products" class="col">
+                    <div class="card" style="width: 18rem;" >
+                        <img class="card-img-top" src={{product.img}} alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{product.name}}</h5>
+                          <p class="card-text">{{product.price | currency:"USD "}}</p>
+                          <a href="#" class="btn btn-primary">Buy now</a>
+                        </div>
+                    </div>
                 </li>
-            </ul>            
-        </nav>        
-      </div>
+                
+            </div>
+        </div> 
     </div>
+    
     <script>
-      var header = angular.module("header", []);
-      header.controller("navbar", function ($scope) {
+      var app = angular.module("app", []);
+      app.controller("navbar", function ($scope) {
         $scope.menu = ["Home", "Products", "About", "Contact", "Account"];
       });
+      app.controller("featured-products",function($scope){
+          $scope.products = [{
+              "name":"Macbook Pro",
+              "price":199000,
+              "img":"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6418/6418602_sd.jpg"
+
+          },{
+              "name":"iPhone",
+              "price":70000,
+              "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1617135051000"
+          },{
+              "name":"Apple Watch 5",
+              "price":23000,
+              "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/44-alum-gold-sport-pinksand-6s-cell?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1599811422000"
+          }]
+      })
     </script>
   </body>
 </html>
