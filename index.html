@@ -25,13 +25,18 @@
         <div ng-app="products">
             <div ng-controller="featured-products" class="row">
                 <li ng-repeat = "product in products" class="col">
-                    <div class="card" style="width: 18rem;" >
-                        <img class="card-img-top" src={{product.img}} alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">{{product.name}}</h5>
-                          <p class="card-text">{{product.price | currency:"USD "}}</p>
-                          <a href="#" class="btn btn-primary">Buy now</a>
+                    <div class="card carousel slide" data-ride="carousel" style="width: 18rem;" >
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="card-img-top img-responsive" src={{product.img}} alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{product.name}}</h5>
+                                    <p class="card-text">{{product.price | currency:"USD "}}</p>
+                                    <a href="#" class="btn btn-primary">Buy now</a>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </li>
                 
@@ -58,7 +63,17 @@
               "name":"Apple Watch 5",
               "price":23000,
               "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/44-alum-gold-sport-pinksand-6s-cell?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1599811422000"
-          }]
+          },
+          {
+              "name":"Apple Airpods ",
+              "price":29000,
+              "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005"
+          },{
+              "name":"Apple iMac ",
+              "price":290000,
+              "img":"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac-24-blue-selection-hero-202104?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1617492405000"
+          }
+          ]
       })
     </script>
   </body>
