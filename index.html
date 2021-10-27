@@ -1,45 +1,136 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        .footer-clean {
+            padding:50px 0;
+            background-color:#fff;
+            color:#4b4c4d;
+            }
+
+            .footer-clean h3 {
+            margin-top:0;
+            margin-bottom:12px;
+            font-weight:bold;
+            font-size:16px;
+            }
+
+            .footer-clean ul {
+            padding:0;
+            list-style:none;
+            line-height:1.6;
+            font-size:14px;
+            margin-bottom:0;
+            }
+
+            .footer-clean ul a {
+            color:inherit;
+            text-decoration:none;
+            opacity:0.8;
+            }
+
+            .footer-clean ul a:hover {
+            opacity:1;
+            }
+
+            .footer-clean .item.social {
+            text-align:right;
+            }
+
+            @media (max-width:767px) {
+            .footer-clean .item {
+                text-align:center;
+                padding-bottom:20px;
+            }
+            }
+
+            @media (max-width: 768px) {
+            .footer-clean .item.social {
+                text-align:center;
+            }
+            }
+
+            .footer-clean .item.social > a {
+            font-size:24px;
+            width:40px;
+            height:40px;
+            line-height:40px;
+            display:inline-block;
+            text-align:center;
+            border-radius:50%;
+            border:1px solid #ccc;
+            margin-left:10px;
+            margin-top:22px;
+            color:inherit;
+            opacity:0.75;
+            }
+
+            .footer-clean .item.social > a:hover {
+            opacity:0.9;
+            }
+
+            @media (max-width:991px) {
+            .footer-clean .item.social > a {
+                margin-top:40px;
+            }
+            }
+
+            @media (max-width:767px) {
+            .footer-clean .item.social > a {
+                margin-top:10px;
+            }
+            }
+
+            .footer-clean .copyright {
+            margin-top:14px;
+            margin-bottom:0;
+            font-size:13px;
+            opacity:0.6;
+            }
+
+        .a1 {
+          transition: all linear 0.5s;
+          background-color: rgb(197, 207, 211);
+          height: 700px;
+          width: 100%;
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+        
+        .ng-hide {
+          height: 0;
+          width: 0;
+          background-color: transparent;
+          top:-200px;
+          left: 200px;
+        }
+        
+    </style>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Untitled</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+     <link rel="stylesheet" href="assets/css/style.css">
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
   <body>
     <div ng-app="app">
-      <div ng-controller="navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <ul class="navbar-nav">
-            <li class="nav-item" ng-repeat="x in menu">
-              <a class="nav-link" href="{{x.link}}">{{x.name}}</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="jumbotron hero-image">
-        <h2 class="hero-text">Welcome to E-commerce website</h2>
-      </div>
-      <div ng-app="products">
-        <div ng-controller="featured-products" class="row">
-          <h2 class="text-center">Featured Products</h2>
-          <li ng-repeat="product in products" class="col">
-            <div class="card col-md" style="width: 18rem">
-              <img
-                class="card-img-top"
-                src="{{product.img}}"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title">{{product.name}}</h5>
-                <p class="card-text">{{product.price | currency:"USD "}}</p>
-                <a href="#" class="btn btn-primary">Buy now</a>
-              </div>
-            </div>
-          </li>
+        <div ng-controller="navbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item" ng-repeat="x in menu">
+                        <a class="nav-link" href="#">{{x}}</a>
+                    </li>
+                </ul>
+            </nav>        
         </div>
         <div class="jumbotron hero-image">
             <h2 class="hero-text">Welcome to E-commerce website</h2>
@@ -47,89 +138,65 @@
         <div ng-app="products">
             <div ng-controller="featured-products" class="row">
                 <li ng-repeat = "product in products" class="col">
-                    <div class="card carousel slide" data-ride="carousel" style="width: 18rem;" >
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="card-img-top img-responsive" src={{product.img}} alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{product.name}}</h5>
-                                    <p class="card-text">{{product.price | currency:"USD "}}</p>
-                                    <a href="#" class="btn btn-primary">Buy now</a>
-                                </div>
-                            </div>
+                    <div class="card" style="width: 18rem;" >
+                        <img class="card-img-top" src={{product.img}} alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{product.name}}</h5>
+                          <p class="card-text">{{product.price | currency:"USD "}}</p>
+                          <a href="#" class="btn btn-primary">Buy now</a>
                         </div>
-                        
                     </div>
                 </li>
                 
             </div>
-          </div>
-          <div class="item">
-            <img src="https://picsum.photos/400/450/?random" alt="" />
-            <div class="content">
-              <p>ಠ_ಠ</p>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://picsum.photos/400/550/?random" alt="" />
-            <div class="content">
-              <p>ಠ_ಠ</p>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://picsum.photos/400/310/?random" alt="" />
-            <div class="content">
-              <p>ಠ_ಠ</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
+        <div> 
+            <h1>Submit after filling: <input type="checkbox" ng-model="myCheck"></h1>
+            <div class="a1" ng-hide="myCheck"></div>
+        </div>
+        <div class="footer-clean">
+            <footer>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-4 col-md-3 item">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Web design</a></li>
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">Hosting</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-md-3 item">
+                            <h3>About</h3>
+                            <ul>
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">Legacy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-md-3 item">
+                            <h3>Careers</h3>
+                            <ul>
+                                <li><a href="#">Job openings</a></li>
+                                <li><a href="#">Employee success</a></li>
+                                <li><a href="#">Benefits</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                            <p class="copyright">Company Name © 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div> 
 
+
+    
     <script>
-      var app = angular.module("app", []);
+      var app = angular.module("app", ['ngAnimate']);
       app.controller("navbar", function ($scope) {
-        $scope.menu = [
-          {
-            name: "Home",
-            link: "/",
-          },
-          {
-            name: "Products",
-            link: "/products",
-          },
-          {
-            name: "About",
-            link: "/about",
-          },
-          {
-            name: "Contact",
-            link: "/contact",
-          },
-          {
-            name: "Account",
-            link: "/account",
-          },
-        ];
-      });
-      app.controller("featured-products", function ($scope) {
-        $scope.products = [
-          {
-            name: "Macbook Pro",
-            price: 199000,
-            img: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6418/6418602_sd.jpg",
-          },
-          {
-            name: "iPhone",
-            price: 70000,
-            img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1617135051000",
-          },
-          {
-            name: "Apple Watch 5",
-            price: 23000,
-            img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/44-alum-gold-sport-pinksand-6s-cell?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1599811422000",
-          },
-        ];
+        $scope.menu = ["Home", "Products", "About", "Contact", "Account"];
       });
       app.controller("featured-products",function($scope){
           $scope.products = [{
@@ -145,18 +212,10 @@
               "name":"Apple Watch 5",
               "price":23000,
               "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/44-alum-gold-sport-pinksand-6s-cell?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1599811422000"
-          },
-          {
-              "name":"Apple Airpods ",
-              "price":29000,
-              "img":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005"
-          },{
-              "name":"Apple iMac ",
-              "price":290000,
-              "img":"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/imac-24-blue-selection-hero-202104?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1617492405000"
-          }
-          ]
+          }]
       })
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
